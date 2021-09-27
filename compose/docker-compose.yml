@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  maintenance-page:
+    build:
+      context: ./
+      dockerfile: .Dockerfile
+    container_name: maintenance-page
+    environment:
+      SITE_CONTENT: "Sorry for the inconvenience. Site is currently under maintenance and will be back in a couple of minutes. We will be back up shortly!"
+      SITE_HEADER: "Maintenance undergoing"
+      SITE_TITLE: "Maintenance"
+      PORT: "8080"
+      RESPONSE_CODE: "503 Service Unavailable"
+    ports:
+      - "8080:8080"
