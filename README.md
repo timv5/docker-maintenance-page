@@ -11,7 +11,7 @@ docker-compose.yml file.
 # External sources
 Html page was obtained here: https://codepen.io/calvinbramlett/pen/WOMzqx
 
-# Prequences
+# Pre-requisite
 - Docker (docker compose) installed
 
 # Run the application
