@@ -16,3 +16,6 @@ Html page was obtained here: https://codepen.io/calvinbramlett/pen/WOMzqx
 
 # Run the application
 In root directory run: docker-compose -f docker-compose up -d
+
+# Showcase
+![](image/maintenance.png)
