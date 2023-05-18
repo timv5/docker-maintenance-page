@@ -1,0 +1,42 @@
+pipeline {
+
+    agent any
+
+    environment {
+        dockerimagename = "{dockerHubAccountName}/docker-maintenance-page"
+        serviceName = 'docker-maintenance-page'
+        dockerImage = ''
+        githublink = 'https://github.com/timv5/docker-maintenance-page.git'
+    }
+
+    stages {
+
+        stage('Git code checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.']], userRemoteConfigs: [[credentialsId: 'githublogin', url: githublink]]])
+            }
+        }
+
+        stage('Build image') {
+            steps{
+                script {
+                    dockerImage = docker.build dockerimagename
+                }
+            }
+        }
+        
+        stage('Pushing Image') {
+            environment {
+                   registryCredential = 'dockerhublogin'
+            }
+          
+            steps{
+                script {
+                    docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+                        dockerImage.push("latest")
+                    }  
+                }
+            }
+        }
+    }
+}
