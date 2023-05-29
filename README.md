@@ -33,6 +33,7 @@ Project can be also configured for CI/CD process. Steps/how it works?
 - install brew
 - run: brew install jenkins-lts
 - run: brew services restart jenkins-lts
+- run: brew services start jenkins-lts
 - (mac) allow jenkins to run docker commands. Open and apply: <key>EnvironmentVariables</key><dict><key>PATH</key><string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Docker.app/Contents/Resources/bin/:/Users/Kh0a/Library/Group\ Containers/group.com.docker/Applications/Docker.app/Contents/Resources/bin</string></dict>
 in:  /opt/homebew/Cellar/jenkins-lts/2.176.3/homebrew.mxcl.jenkins-lts.plist
 
