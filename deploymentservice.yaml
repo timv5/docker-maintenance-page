@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: docker-maintenance-page
-          image: timv5/docker-maintenance-page
+          image: timv5/docker-maintenance-page:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
